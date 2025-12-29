@@ -6,7 +6,7 @@ const Index = () => {
 
     const handleClickLogout = ()=>{
     //TODO
-        alert("Logout");
+        alert("Logout successful");
 
     }
     return (

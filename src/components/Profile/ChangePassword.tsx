@@ -1,6 +1,10 @@
 import {useState} from "react";
+import type EditProfile from "./EditProfile.tsx";
 
-const ChangePassword = () => {
+
+
+
+const ChangePassword = ({close}:EditProfile) => {
     const [oldPassword,setOldPassword]=useState('')
     const [newPassword,setNewPassword]=useState('')
     const [confirmPassword,setConfirmPassword]=useState('')
@@ -9,11 +13,11 @@ const ChangePassword = () => {
     const handleClickSave = () => {
         //TODO implement edit password save and close logic
         alert(" Password updated")
+        close()
     }
-    const handleClickClose = () => {
-        //TODO change password
-        alert(" changePassword closed")
-    }
+    // const handleClickClose = () => {
+    //     close()
+    // }
     const handleClickClear = () => {
         setNewPassword('')
         setConfirmPassword('')
@@ -42,7 +46,7 @@ const ChangePassword = () => {
             </label>
 
             <button onClick={handleClickSave}>Save and close</button>
-            <button onClick={handleClickClose}> Close without save</button>
+            <button onClick={close}> Close without save</button>
             <button onClick={handleClickClear}> Clear</button>
 
         </>
