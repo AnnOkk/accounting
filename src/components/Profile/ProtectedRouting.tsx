@@ -1,16 +1,14 @@
-import SignIn from "../Guest/SignIn.tsx";
-import ProfileData from "./ProfileData.tsx";
+
+import Guest from "../Guest";
+import Profile from "./index.tsx";
 
 const ProtectedRouting = ({isAuthentificated}:{isAuthentificated:boolean}) => {
     if(!isAuthentificated){
-        return <SignIn/>
+        return <Guest/>
     }
 
-
-
-
     return (
-        <ProfileData/>
+        <Profile/>
     )
 }
 
