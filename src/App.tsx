@@ -31,7 +31,7 @@ function App() {
                 <Route path='/profile' element={<Profile/>}/>
                 {/*<Route path='/profile/updateuser' element={<UpdateUser/>}/>*/}
                 {/*<Route path='/profile/editprofile' element={<EditProfile/>}/>*/}
-                {/*<Route path='/profile/changepassword' element={<ChangePassword/>}/>*/}
+                {/*<Route path='/profile/changepassword' element={<ChangePassword/>}/> useAuth +  useNavigate because of close() */}
             </Route>
         </Routes>
 
