@@ -1,14 +1,12 @@
-
-import Guest from "../Guest";
-import Profile from "./index.tsx";
+import {Navigate, Outlet} from "react-router-dom";
 
 const ProtectedRouting = ({isAuthentificated}:{isAuthentificated:boolean}) => {
     if(!isAuthentificated){
-        return <Guest/>
+        return <Navigate to="/signin" /> //where we are coming if not isAuthentificated
     }
 
     return (
-        <Profile/>
+        <Outlet/>
     )
 }
 
