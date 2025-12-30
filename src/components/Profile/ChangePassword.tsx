@@ -10,9 +10,13 @@ const ChangePassword = ({close}: ChangePasswordProps) => {
     const [confirmPassword, setConfirmPassword] = useState('');
 
     const handleClickSave = () => {
-        // TODO: Implement change password save logic
-        alert('Password changed!');
-        close();
+        if (newPassword === confirmPassword) {
+            // TODO: Implement change password save logic
+            alert('Password changed!');
+            close();
+        } else {
+            alert('Passwords do not match!');
+        }
     }
 
     const handleClickClear = () => {
