@@ -1,19 +1,23 @@
 import ProfileData from "./ProfileData.tsx";
 import UpdateUser from "./UpdateUser.tsx";
+import {useAppDispatch} from "../../app/hooks.ts";
+import {clearToken} from "../../features/token/tokenSlice.ts";
+import {clearUser} from "../../features/user/userSlice.ts";
 
-const Index = () => {
+const Profile = () => {
+    const dispatch = useAppDispatch();
 
     const handleClickLogout = () => {
-        // TODO: Implement logout functionality
-        alert('Logout successful!');
+        dispatch(clearToken());
+        dispatch(clearUser());
     }
     return (
         <div>
-            <ProfileData />
+            <ProfileData/>
             <button onClick={handleClickLogout}>Logout</button>
-            <UpdateUser />
+            <UpdateUser/>
         </div>
     )
 }
 
-export default Index;
+export default Profile;
