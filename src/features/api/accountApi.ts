@@ -5,6 +5,7 @@ import {fetchBaseQuery} from "@reduxjs/toolkit/query";
 
 export const accountApi = createApi({
     reducerPath: 'account',
+    tagTypes: ['profile'],
     baseQuery: fetchBaseQuery({baseUrl: base_url}),
     endpoints: (builder) => ({
         registerUser: builder.mutation<UserProfile, UserRegister>({
@@ -21,7 +22,8 @@ export const accountApi = createApi({
                 headers: {
                     Authorization: token
                 }
-            })
+            }),
+            providesTags: ['profile']
         }),
         updateUser: builder.mutation<UserProfile, {login: string, token: string, user: Omit<UserData, 'login'>} >({
             query: ({user, login, token}) => ({
@@ -31,7 +33,8 @@ export const accountApi = createApi({
                 headers: {
                     Authorization: token
                 }
-            })
+            }),
+            invalidatesTags: ['profile']
         }),
         changePassword: builder.mutation<void, {token: string, newPassword: string}>({
             query: ({token, newPassword}) => ({
