@@ -1,0 +1,17 @@
+services:
+  view:
+    image: annokk/accounting:latest
+    container_name: accounting
+    ports:
+      - "80:80"
+    depends_on:
+      - forum-service
+  forum-service:
+    image: annokk/forum-service:latest
+    container_name: forum
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - DB_NAME=telran62
+      - MONGO_URI='mongodb+srv://chereshnyasladkaya_db_user:12345.com@cluster1.jv549ie.mongodb.net/telran62?appName=Cluster1'
