@@ -14,4 +14,15 @@ services:
     environment:
       - PORT=8080
       - DB_NAME=telran62
-      - MONGO_URI='mongodb+srv://chereshnyasladkaya_db_user:12345.com@cluster1.jv549ie.mongodb.net/telran62?appName=Cluster1'
+      - MONGO_URI=mongodb://mongo:27017/telran62
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+        - mongo-data:/data/db
+volumes:
+  mongo-data:
